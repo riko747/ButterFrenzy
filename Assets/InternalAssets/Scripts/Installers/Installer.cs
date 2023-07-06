@@ -7,8 +7,8 @@ namespace InternalAssets.Scripts.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<ILevelService>().To<LevelService>().FromComponentInHierarchy();
-            Container.Bind<IResourcesService>().To<ResourcesService>().FromComponentInHierarchy();
+            Container.Bind<ILevelService>().To<LevelService>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<IResourcesService>().To<ResourcesService>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

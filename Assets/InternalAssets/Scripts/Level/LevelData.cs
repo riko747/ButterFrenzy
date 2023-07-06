@@ -4,8 +4,9 @@ namespace InternalAssets.Scripts.Level
 {
     public class LevelData : MonoBehaviour
     {
-        [SerializeField] private Transform levelStartTransform;
+        [SerializeField] private Transform startLevelTransform;
 
-        public Transform LevelStartTransform => levelStartTransform;
+        public Vector3 PlayerStartPosition => new(startLevelTransform.position.x,
+            startLevelTransform.position.y + 1, startLevelTransform.position.z);
     }
 }
