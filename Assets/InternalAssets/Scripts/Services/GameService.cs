@@ -1,30 +1,65 @@
 using Cinemachine;
+using InternalAssets.Scripts.Level;
 using InternalAssets.Scripts.Other;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace InternalAssets.Scripts.Services
 {
-    public class GameService : MonoBehaviour
+    internal interface IGameService
+    {
+        public void EndGame(bool gameOver);
+        public IInstantiator Instantiator { get; }
+    }
+    public class GameService : MonoBehaviour, IGameService
     {
         [Inject] private ILevelService _levelService;
         [Inject] private IResourcesService _resourcesService;
+        [Inject] private IPlayerPrefsService _playerPrefsService;
+        [Inject] public void Initialize(IInstantiator instantiator) => _instantiator = instantiator;
 
         [SerializeField] private CinemachineVirtualCamera cineMachineVirtualCamera;
-        
+        private IInstantiator _instantiator;
+
+        public IInstantiator Instantiator => _instantiator;
+
         private void Start() => StartGame();
 
         private void StartGame()
         {
-            var level = _levelService.LoadLevel(PlayerPrefs.HasKey(Constants.LastLevel)
-                ? PlayerPrefs.GetInt(Constants.LastLevel)
-                : 0);
-            
-            var player = Instantiate(_resourcesService.LoadPlayer(), level.PlayerStartPosition, Quaternion.identity);
+            var level = CreateLevel();
+            var player = CreatePlayer(level);
+            SetupCamera(player);
+        }
+
+        private void SetupCamera(GameObject player)
+        {
             cineMachineVirtualCamera.Follow = player.transform;
             cineMachineVirtualCamera.LookAt = player.transform;
             cineMachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(0, 4, -5);
+        }
+
+        private GameObject CreatePlayer(LevelData level) => _instantiator.InstantiatePrefab(_resourcesService.LoadPlayer(), level.PlayerStartPosition, Quaternion.identity, level.StartLevelTransform());
+
+        private LevelData CreateLevel()
+        {
+            var level = _levelService.LoadLevel(PlayerPrefs.HasKey(Constants.LastLevel)
+                ? PlayerPrefs.GetInt(Constants.LastLevel)
+                : 0);
+            return level;
+        }
+
+        public void EndGame(bool gameOver)
+        {
+            SceneManager.LoadScene(sceneBuildIndex: 0);
+            if (!gameOver)
+            {
+                _levelService.CurrentLevel++;
+                _playerPrefsService.SetPlayerPrefsValue(Constants.LastLevel, _levelService.CurrentLevel);
+            }
+
+            _levelService.LoadLevel(_levelService.CurrentLevel);
         }
     }
 }

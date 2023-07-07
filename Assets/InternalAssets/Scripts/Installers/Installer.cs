@@ -9,6 +9,8 @@ namespace InternalAssets.Scripts.Installers
         {
             Container.Bind<ILevelService>().To<LevelService>().FromComponentInHierarchy().AsSingle();
             Container.Bind<IResourcesService>().To<ResourcesService>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<IGameService>().To<GameService>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().FromComponentsInHierarchy().AsSingle();
         }
     }
 }
