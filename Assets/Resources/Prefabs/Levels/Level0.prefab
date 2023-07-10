@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLevelTransform: {fileID: 5308445302052448044}
+  enemiesParentTransform: {fileID: 2830920904175898600}
 --- !u!1 &5253060020502128469
 GameObject:
   m_ObjectHideFlags: 0
