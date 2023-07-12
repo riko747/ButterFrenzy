@@ -52,14 +52,13 @@ namespace InternalAssets.Scripts.Services
 
         public void EndGame(bool gameOver)
         {
-            SceneManager.LoadScene(sceneBuildIndex: 0);
-            if (!gameOver)
+            if (!gameOver && _resourcesService.IsLevelExists(_levelService.CurrentLevel + 1))
             {
                 _levelService.CurrentLevel++;
                 _playerPrefsService.SetPlayerPrefsValue(Constants.LastLevel, _levelService.CurrentLevel);
             }
 
-            _levelService.LoadLevel(_levelService.CurrentLevel);
+            SceneManager.LoadScene(sceneBuildIndex: 0);
         }
     }
 }
