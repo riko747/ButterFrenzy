@@ -110,7 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLevelTransform: {fileID: 5308445302052448044}
-  enemiesParentTransform: {fileID: 2830920904175898600}
 --- !u!1 &5253060020502128469
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (6)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -323,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -385,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (16)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -447,7 +446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (12)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -509,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (1)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -571,7 +570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (27)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -633,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (5)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -695,7 +694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (17)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -757,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (15)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -819,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (25)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -881,7 +880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (29)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -943,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (18)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1005,7 +1004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (20)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1067,7 +1066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (14)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1129,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (23)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1191,7 +1190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (19)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1253,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (2)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1315,7 +1314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (4)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1377,7 +1376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (21)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1439,7 +1438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (28)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1501,7 +1500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (8)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1563,7 +1562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (11)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1625,7 +1624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (10)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1749,7 +1748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (26)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1811,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (7)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1873,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (9)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1935,7 +1934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (3)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -1997,7 +1996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (13)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -2121,7 +2120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (24)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
@@ -2183,7 +2182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491176862760434763, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}
       propertyPath: m_Name
-      value: StaticEnemy (22)
+      value: JumpingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a6c21cc65e6944bacfdffb20e8c50d, type: 3}

@@ -6,13 +6,13 @@ using Zenject;
 
 namespace InternalAssets.Scripts.Enemies
 {
-    public class Enemy : MonoBehaviour
+    public abstract class Enemy : MonoBehaviour
     {
         [Inject] private IGameService _gameService;
 
         protected Sequence AnimationSequence;
 
-        private void Start() => Move();
+        protected virtual void Start() => Move();
 
         private void OnCollisionEnter(Collision other)
         {
@@ -20,10 +20,6 @@ namespace InternalAssets.Scripts.Enemies
                 _gameService.EndGame(true);
         }
 
-        public virtual void Move()
-        {
-            AnimationSequence?.Kill();
-            AnimationSequence = DOTween.Sequence();
-        }
+        protected abstract void Move();
     }
 }

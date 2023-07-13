@@ -5,9 +5,9 @@ namespace InternalAssets.Scripts.Enemies
 {
     public class RotatingEnemy : Enemy
     {
-        public override void Move()
+        protected override void Move()
         {
-            base.Move();
+            AnimationSequence?.Kill();
             AnimationSequence = DOTween.Sequence().SetLoops(-1);
             AnimationSequence.Append(DOTween
                 .To(() => 0f, angle => transform.localRotation = Quaternion.Euler(0, angle, 0), 360f, 2f)

@@ -4,8 +4,8 @@ namespace InternalAssets.Scripts.Other
     {
         public enum PlayerState
         {
-            OnGround,
-            InAir
+            InAir,
+            OnGround
         }
     }
 }
