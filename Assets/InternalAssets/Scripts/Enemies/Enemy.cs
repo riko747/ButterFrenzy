@@ -1,6 +1,6 @@
 using DG.Tweening;
+using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.Player;
-using InternalAssets.Scripts.Services;
 using UnityEngine;
 using Zenject;
 

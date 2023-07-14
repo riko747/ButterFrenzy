@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using InternalAssets.Scripts.Enemies;
 using UnityEngine;
 
 namespace InternalAssets.Scripts.Level

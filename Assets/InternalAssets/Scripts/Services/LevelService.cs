@@ -1,14 +1,10 @@
 using InternalAssets.Scripts.Level;
+using InternalAssets.Scripts.Other;
 using UnityEngine;
 using Zenject;
 
 namespace InternalAssets.Scripts.Services
 {
-    internal interface ILevelService
-    {
-        LevelData LoadLevel(int index);
-        int CurrentLevel { get; set; }
-    }
     public class LevelService : MonoBehaviour, ILevelService
     {
         [Inject] private IGameService _gameService;

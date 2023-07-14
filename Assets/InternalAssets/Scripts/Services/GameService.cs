@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using InternalAssets.Scripts.Level;
 using InternalAssets.Scripts.Other;
@@ -8,11 +7,6 @@ using Zenject;
 
 namespace InternalAssets.Scripts.Services
 {
-    internal interface IGameService
-    {
-        public void EndGame(bool gameOver);
-        public IInstantiator Instantiator { get; }
-    }
     public class GameService : MonoBehaviour, IGameService
     {
         [Inject] private ILevelService _levelService;

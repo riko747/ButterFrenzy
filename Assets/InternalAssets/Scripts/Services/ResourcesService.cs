@@ -4,12 +4,6 @@ using UnityEngine;
 
 namespace InternalAssets.Scripts.Services
 {
-    internal interface IResourcesService
-    {
-        bool IsLevelExists(int index);
-        GameObject LoadLevel(int index);
-        GameObject LoadPlayer();
-    }
     public class ResourcesService : MonoBehaviour, IResourcesService
     {
         public bool IsLevelExists(int index)

@@ -1,3 +1,4 @@
+using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.Services;
 using Zenject;
 
@@ -11,6 +12,7 @@ namespace InternalAssets.Scripts.Installers
             Container.Bind<IResourcesService>().To<ResourcesService>().FromComponentInHierarchy().AsSingle();
             Container.Bind<IGameService>().To<GameService>().FromComponentInHierarchy().AsSingle();
             Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().FromComponentsInHierarchy().AsSingle();
+            Container.Bind<IBonusService>().To<BonusService>().FromComponentsInHierarchy().AsSingle();
         }
     }
 }

@@ -7,5 +7,12 @@ namespace InternalAssets.Scripts.Other
             InAir,
             OnGround
         }
+
+        public enum BonusType
+        {
+            JumpBonus,
+            GodModeBonus,
+            SlowTimeBonus
+        }
     }
 }

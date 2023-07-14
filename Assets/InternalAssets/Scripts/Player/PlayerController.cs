@@ -30,7 +30,7 @@ namespace InternalAssets.Scripts.Player
         {
             ClampPlayerPosition();
 
-            if (_playerState != Enums.PlayerState.OnGround) return;
+            if (_playerState == Enums.PlayerState.InAir) return;
             
             var moveX = Input.GetAxis("Horizontal");
 
