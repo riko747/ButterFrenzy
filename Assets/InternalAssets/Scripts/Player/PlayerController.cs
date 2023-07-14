@@ -1,4 +1,3 @@
-using System;
 using InternalAssets.Scripts.Other;
 using UnityEngine;
 
@@ -13,31 +12,24 @@ namespace InternalAssets.Scripts.Player
         private const float MovementSpeed = 10f;
         private const float ClampedMinPosition = -1.85f;
         private const float ClampedMaxPosition = 1.85f;
-
-        private void FixedUpdate()
-        {
-            Move();
-        }
+        private const float JumpPower = 20;
 
         private void Update()
         {
+            Move();
             Jump();
         }
 
         private void Jump()
         {
             if (Input.GetKeyDown(KeyCode.Space) && _playerState == Enums.PlayerState.OnGround)
-            {
-                playerRigidbody.AddForce(Vector2.up * 20, ForceMode.Impulse);
-            }
+                playerRigidbody.AddForce(Vector2.up * JumpPower, ForceMode.Impulse);
         }
         
         private void Move()
         {
-            var clampedPosition = playerRigidbody.position;
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, ClampedMinPosition, ClampedMaxPosition);
-            playerRigidbody.position = clampedPosition;
-            
+            ClampPlayerPosition();
+
             if (_playerState != Enums.PlayerState.OnGround) return;
             
             var moveX = Input.GetAxis("Horizontal");
@@ -47,7 +39,14 @@ namespace InternalAssets.Scripts.Player
             velocity.z = MovementSpeed;
             playerRigidbody.velocity = velocity;
 
-            playerRigidbody.AddForce(Physics.gravity, ForceMode.Acceleration);
+            playerRigidbody.AddForce(Physics.gravity, ForceMode.Force);
+        }
+
+        private void ClampPlayerPosition()
+        {
+            var clampedPosition = playerRigidbody.position;
+            clampedPosition.x = Mathf.Clamp(clampedPosition.x, ClampedMinPosition, ClampedMaxPosition);
+            playerRigidbody.position = clampedPosition;
         }
 
         private void OnCollisionExit() => _playerState = Enums.PlayerState.InAir;

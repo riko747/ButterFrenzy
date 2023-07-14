@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using InternalAssets.Scripts.Level;
 using InternalAssets.Scripts.Other;
@@ -24,6 +25,11 @@ namespace InternalAssets.Scripts.Services
 
         public IInstantiator Instantiator => _instantiator;
 
+        private void Awake()
+        {
+            Application.targetFrameRate = 60;
+        }
+
         private void Start() => StartGame();
 
         private void StartGame()
@@ -37,7 +43,7 @@ namespace InternalAssets.Scripts.Services
         {
             cineMachineVirtualCamera.Follow = player.transform;
             cineMachineVirtualCamera.LookAt = player.transform;
-            cineMachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(0, 4, -5);
+            cineMachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0, 0, 1.5f);
         }
 
         private GameObject CreatePlayer(LevelData level) => _instantiator.InstantiatePrefab(_resourcesService.LoadPlayer(), level.PlayerStartPosition, Quaternion.identity, level.StartLevelTransform());

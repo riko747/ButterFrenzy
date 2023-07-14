@@ -7,13 +7,17 @@ namespace InternalAssets.Scripts.Enemies
     { 
         [SerializeField] private Rigidbody enemyRigidbody;
 
-        protected override void Start() => StartCoroutine(JumpCoroutine());
+        private const int JumpPower = 5;
 
-        protected override void Move()
+        private Vector3 _jumpVector;
+        protected override void Start()
         {
-            var jumpVector = new Vector3(0, 2, 0);
-            enemyRigidbody.AddForce(jumpVector * 5, ForceMode.Impulse);
+            _jumpVector = new Vector3(0, 2, 0);
+            
+            StartCoroutine(JumpCoroutine());
         }
+
+        protected override void Move() => enemyRigidbody.AddForce(_jumpVector * JumpPower, ForceMode.Impulse);
 
         private IEnumerator JumpCoroutine()
         {
