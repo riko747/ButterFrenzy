@@ -13,6 +13,7 @@ namespace InternalAssets.Scripts.Installers
             Container.Bind<IGameService>().To<GameService>().FromComponentInHierarchy().AsSingle();
             Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().FromComponentsInHierarchy().AsSingle();
             Container.Bind<IBonusService>().To<BonusService>().FromComponentsInHierarchy().AsSingle();
+            Container.Bind<IUIService>().To<UIService>().FromComponentsInHierarchy().AsSingle();
         }
     }
 }

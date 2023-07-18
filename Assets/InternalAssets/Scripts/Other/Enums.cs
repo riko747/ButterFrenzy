@@ -10,9 +10,7 @@ namespace InternalAssets.Scripts.Other
 
         public enum BonusType
         {
-            JumpBonus,
-            GodModeBonus,
-            SlowTimeBonus
+            JumpBonus
         }
     }
 }

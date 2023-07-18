@@ -1,10 +1,13 @@
 using InternalAssets.Scripts.Other;
 using UnityEngine;
+using Zenject;
 
 namespace InternalAssets.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [Inject] private IBonusService _bonusService;
+        
         [SerializeField] private Rigidbody playerRigidbody;
 
         private Enums.PlayerState _playerState;
@@ -22,8 +25,13 @@ namespace InternalAssets.Scripts.Player
 
         private void Jump()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && _playerState == Enums.PlayerState.OnGround)
+            var canJump = Input.GetKeyDown(KeyCode.Space) && _playerState == Enums.PlayerState.OnGround && _bonusService.HasBonus(Enums.BonusType.JumpBonus);
+
+            if (canJump)
+            {
                 playerRigidbody.AddForce(Vector2.up * JumpPower, ForceMode.Impulse);
+                _bonusService.DecreaseBonus(Enums.BonusType.JumpBonus);
+            }
         }
         
         private void Move()

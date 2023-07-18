@@ -19,12 +19,11 @@ namespace InternalAssets.Scripts.Services
 
         public IInstantiator Instantiator => _instantiator;
 
-        private void Awake()
+        private void Start()
         {
             Application.targetFrameRate = 60;
+            StartGame();
         }
-
-        private void Start() => StartGame();
 
         private void StartGame()
         {

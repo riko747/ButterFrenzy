@@ -16,6 +16,8 @@ namespace InternalAssets.Scripts.Bonuses
 
         private Sequence _animationSequence;
 
+        public Enums.BonusType BonusType => bonusType;
+
         private void Start() => Rotate();
 
         private void Rotate()

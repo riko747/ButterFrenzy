@@ -1,3 +1,4 @@
+using System;
 using InternalAssets.Scripts.Bonuses;
 using InternalAssets.Scripts.Level;
 using UnityEngine;
@@ -31,6 +32,14 @@ namespace InternalAssets.Scripts.Other
 
     public interface IBonusService
     {
-        public void ActivateBonus(Bonus bonus);
+        BonusData BonusData { get; }
+        bool HasBonus(Enums.BonusType bonusType);
+        public void AddBonus(Bonus bonus);
+        void DecreaseBonus(Enums.BonusType bonusType);
+    }
+
+    public interface IUIService
+    {
+        Action<Enums.BonusType> OnBonusChange { get; set; }
     }
 }
