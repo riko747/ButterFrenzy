@@ -7,7 +7,7 @@ namespace InternalAssets.Scripts.Bonuses
 {
     public abstract class Bonus : MonoBehaviour
     {
-        [Inject] protected IBonusService _bonusService;
+        [Inject] protected IBonusService BonusService;
         
         [SerializeField] protected Enums.BonusType bonusType;
 

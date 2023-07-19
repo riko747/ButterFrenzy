@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3809537771670940413}
   - component: {fileID: 1999160401172274680}
   m_Layer: 0
-  m_Name: MovingEnemy
+  m_Name: MovingXEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da000a9fc14d6fb43acb13aca81f49e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementDirection: 0
+  ease: 10

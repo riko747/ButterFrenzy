@@ -6,7 +6,7 @@ namespace InternalAssets.Scripts.Bonuses
     {
         protected override void OnTriggerEnter(Collider other)
         {
-            _bonusService.AddBonus(this);
+            BonusService.AddBonus(this);
             Destroy(gameObject);
         }
     }

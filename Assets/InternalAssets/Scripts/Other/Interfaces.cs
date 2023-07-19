@@ -6,30 +6,27 @@ using Zenject;
 
 namespace InternalAssets.Scripts.Other
 {
+    #region Services
     internal interface IGameService
     {
         public void EndGame(bool gameOver);
         public IInstantiator Instantiator { get; }
     }
-    
     internal interface ILevelService
     {
         LevelData LoadLevel(int index);
         int CurrentLevel { get; set; }
     }
-    
     internal interface IPlayerPrefsService
     {
         public void SetPlayerPrefsValue(string key, int value);
     }
-    
     internal interface IResourcesService
     {
         bool IsLevelExists(int index);
         GameObject LoadLevel(int index);
         GameObject LoadPlayer();
     }
-
     public interface IBonusService
     {
         BonusData BonusData { get; }
@@ -37,9 +34,14 @@ namespace InternalAssets.Scripts.Other
         public void AddBonus(Bonus bonus);
         void DecreaseBonus(Enums.BonusType bonusType);
     }
-
     public interface IUIService
     {
         Action<Enums.BonusType> OnBonusChange { get; set; }
+    }
+    #endregion
+
+    public interface IMovementStrategy
+    {
+        void Move();
     }
 }

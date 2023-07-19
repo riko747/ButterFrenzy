@@ -16,7 +16,7 @@ namespace InternalAssets.Scripts.Services
             OnBonusChange += UpdateBonusArea;
         }
 
-        public void UpdateBonusArea(Enums.BonusType bonusType) => uiBonusArea.UpdateUI(bonusType);
+        private void UpdateBonusArea(Enums.BonusType bonusType) => uiBonusArea.UpdateUI(bonusType);
 
         private void OnDestroy()
         {

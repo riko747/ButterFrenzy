@@ -4,47 +4,39 @@ using Zenject;
 
 namespace InternalAssets.Scripts.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Player
     {
         [Inject] private IBonusService _bonusService;
-        
-        [SerializeField] private Rigidbody playerRigidbody;
 
-        private Enums.PlayerState _playerState;
-
-        private const float MovementSpeed = 10f;
-        private const float ClampedMinPosition = -1.85f;
-        private const float ClampedMaxPosition = 1.85f;
-        private const float JumpPower = 20;
+        private Enums.PlayerGravityState _playerGravityState;
 
         private void Update()
         {
-            Move();
             Jump();
+            Move();
         }
 
         private void Jump()
         {
-            var canJump = Input.GetKeyDown(KeyCode.Space) && _playerState == Enums.PlayerState.OnGround && _bonusService.HasBonus(Enums.BonusType.JumpBonus);
+            var canJump = Input.GetKeyDown(KeyCode.Space) && _playerGravityState == Enums.PlayerGravityState.OnGround && _bonusService.HasBonus(Enums.BonusType.JumpBonus);
 
-            if (canJump)
-            {
-                playerRigidbody.AddForce(Vector2.up * JumpPower, ForceMode.Impulse);
-                _bonusService.DecreaseBonus(Enums.BonusType.JumpBonus);
-            }
+            if (!canJump) return;
+            
+            playerRigidbody.AddForce(Vector2.up * PlayerState.JumpPower, ForceMode.Impulse);
+            _bonusService.DecreaseBonus(Enums.BonusType.JumpBonus);
         }
         
         private void Move()
         {
             ClampPlayerPosition();
 
-            if (_playerState == Enums.PlayerState.InAir) return;
+            if (_playerGravityState == Enums.PlayerGravityState.InAir) return;
             
             var moveX = Input.GetAxis("Horizontal");
 
             var velocity = playerRigidbody.velocity;
-            velocity.x = moveX * MovementSpeed;
-            velocity.z = MovementSpeed;
+            velocity.x = moveX * PlayerState.MovementSpeed;
+            velocity.z = PlayerState.MovementSpeed;
             playerRigidbody.velocity = velocity;
 
             playerRigidbody.AddForce(Physics.gravity, ForceMode.Force);
@@ -53,12 +45,12 @@ namespace InternalAssets.Scripts.Player
         private void ClampPlayerPosition()
         {
             var clampedPosition = playerRigidbody.position;
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, ClampedMinPosition, ClampedMaxPosition);
+            clampedPosition.x = Mathf.Clamp(clampedPosition.x, PlayerState.ClampedMinPosition, PlayerState.ClampedMaxPosition);
             playerRigidbody.position = clampedPosition;
         }
 
-        private void OnCollisionExit() => _playerState = Enums.PlayerState.InAir;
+        private void OnCollisionExit() => _playerGravityState = Enums.PlayerGravityState.InAir;
 
-        private void OnCollisionStay() => _playerState = Enums.PlayerState.OnGround;
+        private void OnCollisionStay() => _playerGravityState = Enums.PlayerGravityState.OnGround;
     }
 }
