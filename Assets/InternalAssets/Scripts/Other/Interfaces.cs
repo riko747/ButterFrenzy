@@ -39,9 +39,4 @@ namespace InternalAssets.Scripts.Other
         Action<Enums.BonusType> OnBonusChange { get; set; }
     }
     #endregion
-
-    public interface IMovementStrategy
-    {
-        void Move();
-    }
 }

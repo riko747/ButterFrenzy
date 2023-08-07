@@ -12,12 +12,11 @@ namespace InternalAssets.Scripts.Services
         [Inject] private ILevelService _levelService;
         [Inject] private IResourcesService _resourcesService;
         [Inject] private IPlayerPrefsService _playerPrefsService;
-        [Inject] public void Initialize(IInstantiator instantiator) => _instantiator = instantiator;
+        [Inject] public void Initialize(IInstantiator instantiator) => Instantiator = instantiator;
 
         [SerializeField] private CinemachineVirtualCamera cineMachineVirtualCamera;
-        private IInstantiator _instantiator;
 
-        public IInstantiator Instantiator => _instantiator;
+        public IInstantiator Instantiator { get; private set; }
 
         private void Start()
         {
@@ -39,7 +38,7 @@ namespace InternalAssets.Scripts.Services
             cineMachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0, 0, 1.5f);
         }
 
-        private GameObject CreatePlayer(LevelData level) => _instantiator.InstantiatePrefab(_resourcesService.LoadPlayer(), level.PlayerStartPosition, Quaternion.identity, level.StartLevelTransform());
+        private GameObject CreatePlayer(LevelData level) => Instantiator.InstantiatePrefab(_resourcesService.LoadPlayer(), level.PlayerStartPosition, Quaternion.identity, level.StartLevelTransform());
 
         private LevelData CreateLevel()
         {
