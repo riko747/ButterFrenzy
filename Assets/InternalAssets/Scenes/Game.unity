@@ -194,7 +194,7 @@ MonoBehaviour:
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
-  m_UnlimitedSoftZone: 0
+  m_UnlimitedSoftZone: 1
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
@@ -716,6 +716,22 @@ PrefabInstance:
     - target: {fileID: 85617271775319103, guid: ac2aafebcd7ed074cb1b70fe27407b6c, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053189625464450479, guid: ac2aafebcd7ed074cb1b70fe27407b6c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053189625464450479, guid: ac2aafebcd7ed074cb1b70fe27407b6c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053189625464450479, guid: ac2aafebcd7ed074cb1b70fe27407b6c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053189625464450479, guid: ac2aafebcd7ed074cb1b70fe27407b6c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4704406655220786939, guid: ac2aafebcd7ed074cb1b70fe27407b6c, type: 3}
       propertyPath: m_AnchorMax.y

@@ -10,7 +10,7 @@ namespace InternalAssets.Scripts.Player
 
         private Enums.PlayerGravityState _playerGravityState;
 
-        private void Update()
+        private void FixedUpdate()
         {
             Jump();
             Move();
