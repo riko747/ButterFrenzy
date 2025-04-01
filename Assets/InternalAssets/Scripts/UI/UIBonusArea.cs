@@ -7,9 +7,12 @@ namespace InternalAssets.Scripts.UI
 {
     public class UIBonusArea : MonoBehaviour
     {
+        [Inject] private IUIService _uiService;
         [Inject] private IBonusService _bonusService;
         
         [SerializeField] private TextMeshProUGUI jumpBonusValue;
+
+        private void Start() => _uiService.OnBonusChange += UpdateUI;
 
         public void UpdateUI(Enums.BonusType bonusType)
         {
@@ -22,5 +25,7 @@ namespace InternalAssets.Scripts.UI
                     return;
             }
         }
+
+        private void OnDestroy() => _uiService.OnBonusChange -= UpdateUI;
     }
 }

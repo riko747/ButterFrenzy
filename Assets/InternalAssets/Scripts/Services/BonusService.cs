@@ -1,17 +1,16 @@
 using InternalAssets.Scripts.Bonuses;
 using InternalAssets.Scripts.Other;
-using UnityEngine;
 using Zenject;
 
 namespace InternalAssets.Scripts.Services
 {
-    public class BonusService : MonoBehaviour, IBonusService
+    public class BonusService : IBonusService
     {
         [Inject] private IUIService _uiService;
 
         public BonusData BonusData { get; private set; }
 
-        private void Awake()
+        public void Initialize()
         {
             BonusData = new BonusData();
         }
@@ -27,7 +26,7 @@ namespace InternalAssets.Scripts.Services
             {
                 case Enums.BonusType.JumpBonus:
                     BonusData.AddJumpBonus();
-                    _uiService.OnBonusChange?.Invoke(bonus.BonusType);
+                    _uiService.OnBonusChange?.Invoke(Enums.BonusType.JumpBonus);
                     break;
                 default:
                     return;

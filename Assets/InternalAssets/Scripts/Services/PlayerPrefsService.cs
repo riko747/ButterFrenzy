@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace InternalAssets.Scripts.Services
 {
-    public class PlayerPrefsService : MonoBehaviour, IPlayerPrefsService
+    public class PlayerPrefsService : IPlayerPrefsService
     {
         public void SetPlayerPrefsValue(string key, int value)
         {

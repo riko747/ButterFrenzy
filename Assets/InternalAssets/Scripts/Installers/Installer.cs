@@ -1,4 +1,3 @@
-using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.Services;
 using Zenject;
 
@@ -8,12 +7,12 @@ namespace InternalAssets.Scripts.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<ILevelService>().To<LevelService>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<IResourcesService>().To<ResourcesService>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<IGameService>().To<GameService>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<IPlayerPrefsService>().To<PlayerPrefsService>().FromComponentsInHierarchy().AsSingle();
-            Container.Bind<IBonusService>().To<BonusService>().FromComponentsInHierarchy().AsSingle();
-            Container.Bind<IUIService>().To<UIService>().FromComponentsInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ResourcesService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerPrefsService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BonusService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<UIService>().AsSingle();
         }
     }
 }

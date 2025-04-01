@@ -22,6 +22,8 @@ namespace InternalAssets.Scripts.Bonuses
 
         private void Rotate()
         {
+            if (!this) return;
+            
             _animationSequence?.Kill();
             _animationSequence = DOTween.Sequence().SetLoops(-1);
             _animationSequence.Append(DOTween

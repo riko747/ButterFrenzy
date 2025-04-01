@@ -1,5 +1,4 @@
 using InternalAssets.Scripts.Other;
-using InternalAssets.Scripts.Player;
 using UnityEngine;
 using Zenject;
 

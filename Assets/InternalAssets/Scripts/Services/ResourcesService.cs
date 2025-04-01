@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace InternalAssets.Scripts.Services
 {
-    public class ResourcesService : MonoBehaviour, IResourcesService
+    public class ResourcesService : IResourcesService
     {
         public bool IsLevelExists(int index)
         {

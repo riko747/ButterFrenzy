@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using InternalAssets.Scripts.Bonuses;
 using InternalAssets.Scripts.Level;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace InternalAssets.Scripts.Other
     internal interface IGameService
     {
         public void EndGame(bool gameOver);
+        public void SetupCamera(CinemachineVirtualCamera virtualCamera);
         public IInstantiator Instantiator { get; }
     }
     internal interface ILevelService
@@ -38,5 +40,6 @@ namespace InternalAssets.Scripts.Other
     {
         Action<Enums.BonusType> OnBonusChange { get; set; }
     }
+    
     #endregion
 }

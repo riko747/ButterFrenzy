@@ -1,11 +1,10 @@
 using InternalAssets.Scripts.Level;
 using InternalAssets.Scripts.Other;
-using UnityEngine;
 using Zenject;
 
 namespace InternalAssets.Scripts.Services
 {
-    public class LevelService : MonoBehaviour, ILevelService
+    public class LevelService : ILevelService
     {
         [Inject] private IGameService _gameService;
         [Inject] private IResourcesService _resourcesService;

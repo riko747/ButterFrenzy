@@ -7,35 +7,28 @@ using Zenject;
 
 namespace InternalAssets.Scripts.Services
 {
-    public class GameService : MonoBehaviour, IGameService
+    public class GameService : IGameService
     {
         [Inject] private ILevelService _levelService;
         [Inject] private IResourcesService _resourcesService;
         [Inject] private IPlayerPrefsService _playerPrefsService;
         [Inject] public void Initialize(IInstantiator instantiator) => Instantiator = instantiator;
 
-        [SerializeField] private CinemachineVirtualCamera cineMachineVirtualCamera;
-
         public IInstantiator Instantiator { get; private set; }
+        
+        public GameObject Player { get; set; }
 
-        private void Start()
-        {
-            Application.targetFrameRate = 60;
-            StartGame();
-        }
-
-        private void StartGame()
+        public void Initialize()
         {
             var level = CreateLevel();
-            var player = CreatePlayer(level);
-            SetupCamera(player);
+            Player = CreatePlayer(level);
         }
 
-        private void SetupCamera(GameObject player)
+        public void SetupCamera(CinemachineVirtualCamera virtualCamera)
         {
-            cineMachineVirtualCamera.Follow = player.transform;
-            cineMachineVirtualCamera.LookAt = player.transform;
-            cineMachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0, 0, 1.5f);
+            virtualCamera.Follow = Player.transform;
+            virtualCamera.LookAt = Player.transform;
+            virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_TrackedObjectOffset = new Vector3(0, 0, 1.5f);
         }
 
         private GameObject CreatePlayer(LevelData level) => Instantiator.InstantiatePrefab(_resourcesService.LoadPlayer(), level.PlayerStartPosition, Quaternion.identity, level.StartLevelTransform());
