@@ -22,7 +22,7 @@ namespace InternalAssets.Scripts.Player
 
             if (!canJump) return;
             
-            playerRigidbody.AddForce(Vector2.up * PlayerState.JumpPower, ForceMode.Impulse);
+            playerRigidbody.AddForce(Vector2.up * PlayerData.JumpPower, ForceMode.Impulse);
             _bonusService.DecreaseBonus(Enums.BonusType.JumpBonus);
         }
         
@@ -35,8 +35,8 @@ namespace InternalAssets.Scripts.Player
             var moveX = Input.GetAxis("Horizontal");
 
             var velocity = playerRigidbody.velocity;
-            velocity.x = moveX * PlayerState.MovementSpeed;
-            velocity.z = PlayerState.MovementSpeed;
+            velocity.x = moveX * PlayerData.MovementSpeed;
+            velocity.z = PlayerData.MovementSpeed;
             playerRigidbody.velocity = velocity;
 
             playerRigidbody.AddForce(Physics.gravity, ForceMode.Force);
@@ -44,9 +44,9 @@ namespace InternalAssets.Scripts.Player
 
         private void ClampPlayerPosition()
         {
-            var clampedPosition = playerRigidbody.position;
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, PlayerState.ClampedMinPosition, PlayerState.ClampedMaxPosition);
-            playerRigidbody.position = clampedPosition;
+            var playerPosition = playerRigidbody.position;
+            playerPosition.x = Mathf.Clamp(playerPosition.x, PlayerData.ClampedMinPosition, PlayerData.ClampedMaxPosition);
+            playerRigidbody.position = playerPosition;
         }
 
         private void OnCollisionExit() => _playerGravityState = Enums.PlayerGravityState.InAir;

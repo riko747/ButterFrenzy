@@ -8,10 +8,9 @@ using Zenject;
 namespace InternalAssets.Scripts.Other
 {
     #region Services
-    internal interface IGameService
+    public interface IGameService
     {
         public void EndGame(bool gameOver);
-        public void SetupCamera(CinemachineVirtualCamera virtualCamera);
         public IInstantiator Instantiator { get; }
     }
     internal interface ILevelService
@@ -39,6 +38,13 @@ namespace InternalAssets.Scripts.Other
     public interface IUIService
     {
         Action<Enums.BonusType> OnBonusChange { get; set; }
+    }
+
+    public interface IPlayerManager
+    {
+        public Player.Player Player { get; set; }
+        public Action OnPlayerExploded { get; set; }
+        public void KillPlayer(Player.Player player);
     }
     
     #endregion

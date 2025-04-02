@@ -1,3 +1,4 @@
+using InternalAssets.Scripts.Player;
 using InternalAssets.Scripts.Services;
 using Zenject;
 
@@ -13,6 +14,7 @@ namespace InternalAssets.Scripts.Installers
             Container.BindInterfacesAndSelfTo<PlayerPrefsService>().AsSingle();
             Container.BindInterfacesAndSelfTo<BonusService>().AsSingle();
             Container.BindInterfacesAndSelfTo<UIService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerManager>().AsSingle();
         }
     }
 }

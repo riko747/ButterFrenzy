@@ -1,49 +1,44 @@
-using System.Threading.Tasks;
 using InternalAssets.Scripts.Player;
 using UnityEngine;
+using Random = System.Random;
 
 namespace InternalAssets.Scripts.Enemies.Traps
 {
     public class LandMineTrap : Trap
     {
-        private const float ExplosionForce = 2000f;
-        private const float ExplosionRadius = 50;
+        private MeshRenderer _trapRenderer;
+        private Random _random;
 
-        protected override async void OnCollisionEnter(Collision collision)
+        private void Start()
         {
-            var playerController = collision.gameObject.GetComponent<PlayerController>();
-            if (playerController == null) return;
-            
-            playerController.PlayerState.PlayerExploded?.Invoke();
-            await Explode(collision);
+            _trapRenderer = GetComponent<MeshRenderer>();
         }
 
-        private async Task Explode(Collision collision)
+        protected override void OnCollisionEnter(Collision collision)
         {
-            var colliders = new Collider[10];
-            var numColliders = Physics.OverlapSphereNonAlloc(transform.position, ExplosionRadius, colliders);
+            var playerController = collision.gameObject.GetComponent<PlayerController>();
 
-            for (var i = 0; i < numColliders; i++)
+            if (playerController == null) return;
+            
+            _trapRenderer.enabled = false;
+            
+            Explode(collision);
+        }
+
+        private void Explode(Collision touchedCollision)
+        {
+            var explosionPosition = transform.position;
+            var explosionRadius = 5.0f;
+            var explosionForce = 2000.0f;
+
+            var touchedRigidbody = touchedCollision.collider.GetComponent<Rigidbody>();
+            
+            if (touchedRigidbody == null) return;
             {
-                var hit = colliders[i];
-                var rb = hit.GetComponent<Rigidbody>();
-
-                if (rb == null) continue;
-
-                var landMinePosition = transform.position;
-                var explosionDirection = rb.transform.position - landMinePosition;
-                explosionDirection.Normalize();
-
-                var randomDirection = Random.insideUnitSphere;
-
-                explosionDirection += randomDirection;
-                explosionDirection.Normalize();
-
-                rb.AddExplosionForce(ExplosionForce, landMinePosition, ExplosionRadius);
+                touchedRigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, 3.0f);
             }
-
-            await Task.Delay(2000);
-            base.OnCollisionEnter(collision);
+            
+            base.OnCollisionEnter(touchedCollision);
         }
     }
 }

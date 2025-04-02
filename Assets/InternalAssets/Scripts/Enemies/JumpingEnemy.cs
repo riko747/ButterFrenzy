@@ -1,34 +1,45 @@
 using System.Collections;
+using InternalAssets.Scripts.Other;
 using UnityEngine;
+using Zenject;
+using Random = System.Random;
 
 namespace InternalAssets.Scripts.Enemies
 {
     public class JumpingEnemy : Enemy
-    { 
+    {
+        [Inject] IPlayerManager _playerManager;
+        
         [SerializeField] private Rigidbody enemyRigidbody;
+        [SerializeField] private Animation jumpingAnimation;
 
-        private const int JumpPower = 5;
+        private const int JumpForce = 5;
 
-        private Vector3 _jumpVector;
-        private System.Random _random;
         private int _jumpInterval;
+        private Random _random;
         
         protected override void Start()
         {
-            _jumpVector = new Vector3(0, 2, 0);
-            _random = new System.Random();
-            _jumpInterval = _random.Next(1, 5);
-            
             StartCoroutine(JumpCoroutine());
+            _random = new Random();
+            _jumpInterval = _random.Next(1, 3);
         }
 
-        protected override void Move() => enemyRigidbody.AddForce(_jumpVector * JumpPower, ForceMode.Impulse);
+        protected override void Move()
+        {
+            var upVector = transform.up.normalized;
+            var forwardToPlayerVector = (_playerManager.Player.transform.position - transform.position).normalized;
+            var resultVector = upVector + forwardToPlayerVector;
+            enemyRigidbody.AddForce(resultVector * JumpForce, ForceMode.Impulse);
+            jumpingAnimation.Play("Jump");
+        }
 
         private IEnumerator JumpCoroutine()
         {
             while (true)
             {
                 Move();
+                transform.LookAt(_playerManager.Player.transform.position);
                 yield return new WaitForSeconds(_jumpInterval);
             }
         }

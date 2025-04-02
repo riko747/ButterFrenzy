@@ -22,8 +22,6 @@ namespace InternalAssets.Scripts.Bonuses
 
         private void Rotate()
         {
-            if (!this) return;
-            
             _animationSequence?.Kill();
             _animationSequence = DOTween.Sequence().SetLoops(-1);
             _animationSequence.Append(DOTween
@@ -33,6 +31,11 @@ namespace InternalAssets.Scripts.Bonuses
             _animationSequence.Play();
         }
 
+        protected void StopAllAnimations()
+        {
+            _animationSequence?.Kill();
+        }
+        
         protected abstract void OnTriggerEnter(Collider other);
     }
 }
