@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="ButterFrenzy_WwiseProject" GUID="{450F6F01-460B-403A-87F9-B50D3A4468D2}" Generator="2023.1.11.8682"/>
+	<CacheRoot>../../../../ButterFrenzy_WwiseProject/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Mac" GUID="{34807228-5438-4C24-9B5A-FD9DB0E2B117}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../ButterFrenzy_WwiseProject/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{500AD391-95AC-4641-81C2-394117174FBB}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../ButterFrenzy_WwiseProject/GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{517DF9A7-C351-4ADE-92CB-842670CB073D}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{13858A5A-4E4E-EB8B-BCAD-D48CC6EA851D}</FileHash>
+</ProjectInfo>
