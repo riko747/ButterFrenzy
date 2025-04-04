@@ -25,17 +25,20 @@ namespace InternalAssets.Scripts.Bonuses
             _animationSequence?.Kill();
             _animationSequence = DOTween.Sequence().SetLoops(-1);
             _animationSequence.Append(DOTween
-                .To(() => 0f, angle => transform.localRotation = Quaternion.Euler(0, angle, 0), RotationAngle,
+                .To(() => 0f, angle => transform.localRotation = Quaternion.Euler(transform.rotation.x, angle, 0), RotationAngle,
                     RotationDuration)
                 .SetEase(Ease.Linear));
             _animationSequence.Play();
         }
 
-        protected void StopAllAnimations()
+        protected virtual void OnTriggerEnter(Collider other)
+        {
+            Destroy(gameObject);
+        }
+
+        private void OnDestroy()
         {
             _animationSequence?.Kill();
         }
-        
-        protected abstract void OnTriggerEnter(Collider other);
     }
 }

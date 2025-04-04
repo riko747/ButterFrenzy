@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using InternalAssets.Scripts.Other;
 using InternalAssets.Scripts.Player;
@@ -21,5 +22,10 @@ namespace InternalAssets.Scripts.Enemies
         }
 
         protected abstract void Move();
+
+        private void OnDestroy()
+        {
+            AnimationSequence?.Kill();
+        }
     }
 }

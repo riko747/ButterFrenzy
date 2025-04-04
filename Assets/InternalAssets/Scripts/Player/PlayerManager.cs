@@ -19,15 +19,15 @@ namespace InternalAssets.Scripts.Player
             _gameService = gameService;
         }
         
-        public void KillPlayer(Player player)
+        public void KillPlayer()
         {
-            DisablePlayerController(player);
-            DisablePlayerConstraints(player.GetPlayerRigidbody());
+            DisablePlayerController();
+            DisablePlayerConstraints();
             _gameService.EndGame(true);
         }
         
-        private void DisablePlayerController(Behaviour playerController) => playerController.enabled = false;
+        private void DisablePlayerController() => Player.enabled = false;
 
-        private void DisablePlayerConstraints(Rigidbody playerRigidbody) => playerRigidbody.freezeRotation = false;
+        public void DisablePlayerConstraints() => Player.GetPlayerRigidbody().freezeRotation = false;
     }
 }

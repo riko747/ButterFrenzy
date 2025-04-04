@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using InternalAssets.Scripts.Player;
 using UnityEngine;
 using Random = System.Random;
@@ -16,9 +17,11 @@ namespace InternalAssets.Scripts.Enemies.Traps
 
         protected override void OnCollisionEnter(Collision collision)
         {
-            var playerController = collision.gameObject.GetComponent<PlayerController>();
+            var playerController = collision.gameObject.GetComponent<Player.Player>();
 
             if (playerController == null) return;
+            
+            base.OnCollisionEnter(collision);
             
             _trapRenderer.enabled = false;
             
@@ -28,17 +31,15 @@ namespace InternalAssets.Scripts.Enemies.Traps
         private void Explode(Collision touchedCollision)
         {
             var explosionPosition = transform.position;
-            var explosionRadius = 5.0f;
-            var explosionForce = 2000.0f;
+            var explosionRadius = 50.0f;
+            var explosionForce = 50.0f;
 
             var touchedRigidbody = touchedCollision.collider.GetComponent<Rigidbody>();
             
             if (touchedRigidbody == null) return;
             {
-                touchedRigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, 3.0f);
+                touchedRigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, 3.0f, ForceMode.Impulse);
             }
-            
-            base.OnCollisionEnter(touchedCollision);
         }
     }
 }

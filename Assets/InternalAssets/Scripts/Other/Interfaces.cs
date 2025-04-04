@@ -44,7 +44,8 @@ namespace InternalAssets.Scripts.Other
     {
         public Player.Player Player { get; set; }
         public Action OnPlayerExploded { get; set; }
-        public void KillPlayer(Player.Player player);
+        public void KillPlayer();
+        public void DisablePlayerConstraints();
     }
     
     #endregion
