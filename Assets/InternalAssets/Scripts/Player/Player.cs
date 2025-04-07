@@ -10,7 +10,6 @@ namespace InternalAssets.Scripts.Player
         [Inject] private IPlayerManager _playerManager;
         
         [SerializeField] protected Rigidbody playerRigidbody;
-        [SerializeField] protected PlayerController playerController;
         
         public PlayerData PlayerData { get; set; }
 
@@ -30,7 +29,7 @@ namespace InternalAssets.Scripts.Player
 
         private IEnumerator DisablePlayerDelayed()
         {
-            _playerManager.DisablePlayerConstraints();
+            _playerManager.DisablePlayerRotationConstraints();
             yield return new WaitForSeconds(2f);
             _playerManager.KillPlayer();
         }

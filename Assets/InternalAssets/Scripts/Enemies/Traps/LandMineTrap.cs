@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using InternalAssets.Scripts.Player;
 using UnityEngine;
 using Random = System.Random;
 

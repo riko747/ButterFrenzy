@@ -1,4 +1,5 @@
-using System.Collections;
+using System;
+using Cysharp.Threading.Tasks;
 using InternalAssets.Scripts.Other;
 using UnityEngine;
 using Zenject;
@@ -20,7 +21,7 @@ namespace InternalAssets.Scripts.Enemies
         
         protected override void Start()
         {
-            StartCoroutine(JumpCoroutine());
+            JumpTask().Forget();
             _random = new Random();
             _jumpInterval = _random.Next(1, 3);
         }
@@ -34,13 +35,13 @@ namespace InternalAssets.Scripts.Enemies
             jumpingAnimation.Play("Jump");
         }
 
-        private IEnumerator JumpCoroutine()
+        private async UniTask JumpTask()
         {
-            while (true)
+            while (this)
             {
                 Move();
                 transform.LookAt(_playerManager.Player.transform.position);
-                yield return new WaitForSeconds(_jumpInterval);
+                await UniTask.Delay(TimeSpan.FromSeconds(_jumpInterval));
             }
         }
     }

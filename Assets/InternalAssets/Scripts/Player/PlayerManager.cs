@@ -1,6 +1,5 @@
 using System;
 using InternalAssets.Scripts.Other;
-using UnityEngine;
 using Zenject;
 
 namespace InternalAssets.Scripts.Player
@@ -12,22 +11,26 @@ namespace InternalAssets.Scripts.Player
         
         
         private IGameService _gameService;
-        
+
+        #region Injections
+
         [Inject]
         private void InjectDependencies(IGameService gameService)
         {
             _gameService = gameService;
         }
+
+        #endregion
         
         public void KillPlayer()
         {
             DisablePlayerController();
-            DisablePlayerConstraints();
+            DisablePlayerRotationConstraints();
             _gameService.EndGame(true);
         }
         
         private void DisablePlayerController() => Player.enabled = false;
 
-        public void DisablePlayerConstraints() => Player.GetPlayerRigidbody().freezeRotation = false;
+        public void DisablePlayerRotationConstraints() => Player.GetPlayerRigidbody().freezeRotation = false;
     }
 }
